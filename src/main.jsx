@@ -115,7 +115,7 @@ function App() {
   }, []);
   useEffect(() => {
     if (route === 'modules') document.getElementById('modules')?.scrollIntoView({ block: 'start' });
-    else if (route === 'goals' || route === 'community') document.getElementById(route)?.scrollIntoView({ block: 'start' });
+    else if (route === 'approach' || route === 'goals' || route === 'community') document.getElementById(route)?.scrollIntoView({ block: 'start' });
     else window.scrollTo(0, 0);
   }, [route]);
   const moduleIndex = route.startsWith('module-') ? Math.max(0, curriculum.findIndex(module => `module-${module.number}` === route)) : -1;
@@ -138,8 +138,8 @@ function App() {
     </header>
 
     <main>
-    {(route === 'home' || route === 'modules') && <>
-      <section className="hero section-wrap">
+    {(route === 'home' || route === 'modules' || route === 'approach') && <>
+      <section className="hero section-wrap" id="home">
         <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-dot"/> DENTISTRY FOR YOUTH <span className="eyebrow-rule"/> DENTAL RESEARCH PROGRAM</div>
           <h1>Learn to read,<br/>question &amp; <em>plan research.</em></h1>
@@ -169,7 +169,7 @@ function App() {
         <div className="hero-bottom"><span>01 — A FOUNDATION FOR WHAT’S NEXT</span><span>SCROLL TO EXPLORE <b>↓</b></span></div>
       </section>
 
-      <section className="intro-section section-wrap" id="approach">
+      <section className="intro-section section-wrap">
         <Reveal className="intro-kicker"><span className="section-index">01</span><span>THE PROGRAM</span></Reveal>
         <div className="intro-content">
           <Reveal><h2>Research begins<br/><em>with good questions.</em></h2></Reveal>
@@ -186,7 +186,7 @@ function App() {
         </div>
       </section>
 
-      <section className="approach-section section-wrap">
+      <section className="approach-section section-wrap" id="approach">
         <Reveal className="approach-heading"><div className="eyebrow"><span className="eyebrow-dot"/> LEARN BY DOING</div><h2>Read closely.<br/><em>Think it through.</em></h2><p>Activities move from identifying evidence in real papers to refining research questions and reviewing objectives with peers. The emphasis is on understanding how research decisions fit together.</p></Reveal>
         <div className="approach-grid">
           <Reveal><div className="approach-card"><span className="approach-index">01 / READ</span><div className="approach-visual visual-plan"><div className="plan-sheet"><i/><i/><i/><b>RESEARCH PAPER</b><span>✓</span></div><div className="plan-orb">01</div></div><h3>Understand the evidence.</h3><p>Identify literature types, examine paper sections, and consider how articles cite and build on previous research.</p></div></Reveal>
